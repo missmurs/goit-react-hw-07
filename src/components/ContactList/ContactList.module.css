@@ -1,0 +1,9 @@
+.sectionContact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.contactButton {
+  padding: 5px 10px;
+  margin: 10px;
+}
