@@ -19,6 +19,8 @@ const INITIAL_STATE = {
   contacts: {
     items: [],
   },
+  isLoading: false,
+  error: null,
 };
 
 const contactsSlice = createSlice({
@@ -34,6 +36,20 @@ const contactsSlice = createSlice({
       );
     },
   },
+  extraReducers: (builder) =>
+    builder
+      .addCase(apiGetAllContacts.pending, (state, action) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(apiGetAllContacts.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.contacts = action.payload;
+      })
+      .addCase(apiGetAllContacts.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      }),
 });
 
 export const { addContacts, deleteContacts } = contactsSlice.actions;
