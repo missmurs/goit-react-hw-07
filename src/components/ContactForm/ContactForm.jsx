@@ -18,12 +18,13 @@ const contactSchema = Yup.object().shape({
     .required("Required"),
 });
 
+const initialValues = {
+  name: "",
+  number: "",
+};
 export default function ContactForm() {
   const dispatch = useDispatch();
-  const initialValues = {
-    name: "",
-    number: "",
-  };
+
   const handleSubmit = (values, actions) => {
     const newContact = { ...values, id: nanoid() };
     dispatch(addContacts(newContact));

@@ -24,8 +24,6 @@
 .sectionContact {
   display: flex;
   flex-wrap: wrap;
-  gap: 24px;
-
   border: 1px solid black;
   width: 300px;
   margin: 20px 0;
